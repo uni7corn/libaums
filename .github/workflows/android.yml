@@ -12,6 +12,7 @@ jobs:
     - name: set up JDK 1.11
       uses: actions/setup-java@v4
       with:
+        distribution: 'oracle'
         java-version: '21'
     - name: install libusb
       run: wget https://github.com/libusb/libusb/archive/v1.0.26.zip && unzip v1.0.26.zip
