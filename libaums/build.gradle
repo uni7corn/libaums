@@ -1,7 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka'
-apply plugin: 'com.dicedmelon.gradle.jacoco-android'
+apply plugin: 'com.mxalbert.gradle.jacoco-android'
 
 jacoco {
   toolVersion = "0.8.7"
@@ -20,12 +20,18 @@ configurations {
 }
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion '30.0.3'
+    kotlinOptions {
+        jvmTarget = '21'
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
 
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 33
+        compileSdk 33
 
         externalNativeBuild {
             cmake {
@@ -38,10 +44,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         debug {
-            testCoverageEnabled true
+            enableUnitTestCoverage true
+            enableAndroidTestCoverage true
         }
+
     }
 
 
