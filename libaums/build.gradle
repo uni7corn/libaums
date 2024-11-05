@@ -4,7 +4,7 @@ apply plugin: 'org.jetbrains.dokka'
 apply plugin: 'com.mxalbert.gradle.jacoco-android'
 
 jacoco {
-  toolVersion = "0.8.7"
+  toolVersion = "0.8.11"
 }
 
 ext {
